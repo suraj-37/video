@@ -9,7 +9,7 @@ from django.core.validators import FileExtensionValidator
 
 class Video(models.Model):
     caption = models.CharField(max_length=100)
-    video=models.FileField(upload_to='uploads/video_files',validators=[file_size,file_extension ])
+    video=models.FileField(upload_to='uploads/video_files',validators=[file_size,FileExtensionValidator(allowed_extensions=['mp4','mkv'] ])
     created_time=models.DateField(auto_now_add=True)
     # thumbnail = models.FileField(upload_to='uploads/thumbnails', validators = [FileExtensionValidator(allowed_extensions=['png', 'jpg', 'jpeg'])])
 
